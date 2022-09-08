@@ -3,7 +3,7 @@ package br.com.uniamerica.transportadora.transportadoraapi.entity;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
-public class Despesas extends AbstractEntity {
+public class Despesa extends AbstractEntity {
 
     private TipoDespesa tipoDespesa;
 

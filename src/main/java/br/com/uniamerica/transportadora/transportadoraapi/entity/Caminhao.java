@@ -6,8 +6,6 @@ public class Caminhao extends AbstractEntity {
 
     private Modelo modelo;
 
-    private Usuario motorista;
-
     private int ano;
 
     private Cor cor;
@@ -28,14 +26,6 @@ public class Caminhao extends AbstractEntity {
 
     public void setModelo(Modelo modelo) {
         this.modelo = modelo;
-    }
-
-    public Usuario getMotorista() {
-        return motorista;
-    }
-
-    public void setMotorista(Usuario motorista) {
-        this.motorista = motorista;
     }
 
     public int getAno() {
