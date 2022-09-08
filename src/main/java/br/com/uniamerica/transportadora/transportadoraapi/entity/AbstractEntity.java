@@ -4,7 +4,7 @@ import java.time.LocalDateTime;
 
 public abstract class AbstractEntity {
 
-    private Long id;
+    public Long id;
 
     private LocalDateTime cadastro;
 
@@ -12,9 +12,6 @@ public abstract class AbstractEntity {
 
     private boolean ativo;
 
-    public Long getId() {
-        return id;
-    }
 
     public void setId(Long id) {
         this.id = id;
