@@ -1,46 +1,39 @@
 package br.com.uniamerica.transportadora.transportadoraapi.entity;
 
+import lombok.Getter;
+import lombok.Setter;
+
+import javax.persistence.Id;
+import javax.persistence.MappedSuperclass;
+import javax.persistence.PrePersist;
+import javax.persistence.PreUpdate;
 import java.time.LocalDateTime;
 
+@MappedSuperclass
 public abstract class AbstractEntity {
 
+    @Id
+
+    @Getter @Setter
     private Long id;
 
+    @Getter @Setter
     private LocalDateTime cadastro;
 
+    @Getter @Setter
     private LocalDateTime alterado;
 
+    @Getter @Setter
     private boolean ativo;
 
-    public Long getId() {
-        return id;
+    @PrePersist
+    public void dataCadastro(){
+        this.setCadastro(LocalDateTime.now());
+        this.setAtivo(true);
     }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public LocalDateTime getCadastrado() {
-        return cadastro;
-    }
-
-    public void setCadastrado(LocalDateTime cadastrado) {
-        this.cadastro = cadastrado;
-    }
-
-    public LocalDateTime getAtualizado() {
-        return alterado;
-    }
-
-    public void setAtualizado(LocalDateTime atualizado) {
-        this.alterado = atualizado;
-    }
-
-    public boolean isAtivo() {
-        return ativo;
-    }
-
-    public void setAtivo(boolean ativo) {
-        this.ativo = ativo;
+    @PreUpdate
+    public void dataAlterado(){
+        this.setAlterado(LocalDateTime.now());
     }
 }

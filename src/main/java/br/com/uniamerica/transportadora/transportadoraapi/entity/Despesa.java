@@ -1,67 +1,37 @@
 package br.com.uniamerica.transportadora.transportadoraapi.entity;
 
+import lombok.Getter;
+import lombok.Setter;
+
+import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
+@Entity
+@Table(name = "td_despesas", schema = "transportadora")
 public class Despesa extends AbstractEntity {
 
+    @ManyToOne
+    @Getter @Setter
     private TipoDespesa tipoDespesa;
 
+    @Getter @Setter
     private BigDecimal valor;
 
+    @ManyToOne
+    @Getter @Setter
     private Usuario motorista;
 
+    @Getter @Setter
     private LocalDateTime data;
 
+    @ManyToOne
+    @Getter @Setter
     private Usuario aprovador;
 
+    @ManyToOne
+    @Getter @Setter
     private Frete frete;
-
-    public TipoDespesa getTipoDespesa() {
-        return tipoDespesa;
-    }
-
-    public void setTipoDespesa(TipoDespesa tipoDespesa) {
-        this.tipoDespesa = tipoDespesa;
-    }
-
-    public BigDecimal getValor() {
-        return valor;
-    }
-
-    public void setValor(BigDecimal valor) {
-        this.valor = valor;
-    }
-
-    public Usuario getMotorista() {
-        return motorista;
-    }
-
-    public void setMotorista(Usuario motorista) {
-        this.motorista = motorista;
-    }
-
-    public LocalDateTime getData() {
-        return data;
-    }
-
-    public void setData(LocalDateTime data) {
-        this.data = data;
-    }
-
-    public Usuario getAprovador() {
-        return aprovador;
-    }
-
-    public void setAprovador(Usuario aprovador) {
-        this.aprovador = aprovador;
-    }
-
-    public Frete getFrete() {
-        return frete;
-    }
-
-    public void setFrete(Frete frete) {
-        this.frete = frete;
-    }
 }
