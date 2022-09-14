@@ -3,6 +3,7 @@ package br.com.uniamerica.transportadora.transportadoraapi.entity;
 import lombok.Getter;
 import lombok.Setter;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
@@ -11,5 +12,6 @@ import javax.persistence.Table;
 public class Marca extends AbstractEntity {
 
     @Getter @Setter
+    @Column(name = "valor", length = 7, nullable = false)
     private String valor;
 }

@@ -3,6 +3,7 @@ package br.com.uniamerica.transportadora.transportadoraapi.entity;
 import lombok.Getter;
 import lombok.Setter;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
@@ -18,6 +19,7 @@ public class Despesa extends AbstractEntity {
     private TipoDespesa tipoDespesa;
 
     @Getter @Setter
+    @Column(name = "valor", nullable = false, precision = 5, scale = 3)
     private BigDecimal valor;
 
     @ManyToOne
@@ -25,6 +27,7 @@ public class Despesa extends AbstractEntity {
     private Usuario motorista;
 
     @Getter @Setter
+    @Column(name = "data", nullable = false)
     private LocalDateTime data;
 
     @ManyToOne
