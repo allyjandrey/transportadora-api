@@ -17,8 +17,9 @@ public class Caminhao extends AbstractEntity {
     @Column(name = "placa", length = 15, nullable = false, unique = true)
     private String placa;
 
-    @ManyToOne
     @Getter @Setter
+    @JoinColumn(name = "id_modelo", nullable = false)
+    @ManyToOne(fetch = FetchType.EAGER, optional = false)
     private Modelo modelo;
 
     @Getter @Setter

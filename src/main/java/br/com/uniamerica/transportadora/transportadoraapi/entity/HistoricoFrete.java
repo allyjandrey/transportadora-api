@@ -14,8 +14,9 @@ public class HistoricoFrete extends AbstractEntity {
     @Column(name = "data", nullable = false)
     private LocalDateTime data;
 
-    @ManyToOne
     @Getter @Setter
+    @JoinColumn(name = "id_estado", nullable = false)
+    @ManyToOne(fetch = FetchType.EAGER, optional = false)
     private Frete frete;
 
     @Getter @Setter
@@ -23,7 +24,8 @@ public class HistoricoFrete extends AbstractEntity {
     @Column(name = "status_frete", length = 15, nullable = false)
     private StatusFrete statusFrete;
 
-    @ManyToOne
     @Getter @Setter
+    @JoinColumn(name = "id_executor", nullable = false)
+    @ManyToOne(fetch = FetchType.EAGER, optional = false)
     private Usuario executor;
 }

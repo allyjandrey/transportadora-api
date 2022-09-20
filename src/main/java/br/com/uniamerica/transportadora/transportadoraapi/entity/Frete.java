@@ -10,24 +10,29 @@ import java.math.BigDecimal;
 @Table(name = "td_fretes", schema = "transportadora")
 public class Frete extends AbstractEntity {
 
-    @ManyToOne
     @Getter @Setter
+    @JoinColumn(name = "id_produto", nullable = false)
+    @ManyToOne(fetch = FetchType.EAGER, optional = false)
     private Produto produto;
 
-    @ManyToOne
     @Getter @Setter
+    @JoinColumn(name = "id_cidade_origem", nullable = false)
+    @ManyToOne(fetch = FetchType.EAGER, optional = false)
     private Cidade cidadeOrigem;
 
-    @ManyToOne
     @Getter @Setter
+    @JoinColumn(name = "id_cidade_destino", nullable = false)
+    @ManyToOne(fetch = FetchType.EAGER, optional = false)
     private Cidade cidadeDestino;
 
-    @ManyToOne
     @Getter @Setter
+    @JoinColumn(name = "id_motorista", nullable = false)
+    @ManyToOne(fetch = FetchType.EAGER, optional = false)
     private Usuario motorista;
 
-    @ManyToOne
     @Getter @Setter
+    @JoinColumn(name = "id_caminhao", nullable = false)
+    @ManyToOne(fetch = FetchType.EAGER, optional = false)
     private Caminhao caminhao;
 
     @Getter @Setter
