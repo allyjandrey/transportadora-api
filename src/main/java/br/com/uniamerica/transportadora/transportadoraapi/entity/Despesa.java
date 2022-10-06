@@ -8,7 +8,7 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "td_despesas", schema = "transportadora")
+@Table(name = "tb_despesas", schema = "transportadora")
 public class Despesa extends AbstractEntity {
 
     @Getter @Setter
