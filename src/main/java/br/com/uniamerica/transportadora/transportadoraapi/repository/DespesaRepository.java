@@ -1,10 +1,9 @@
 package br.com.uniamerica.transportadora.transportadoraapi.repository;
 
-import br.com.uniamerica.transportadora.transportadoraapi.entity.Despesa;
-import br.com.uniamerica.transportadora.transportadoraapi.entity.Frete;
-import br.com.uniamerica.transportadora.transportadoraapi.entity.TipoDespesa;
-import br.com.uniamerica.transportadora.transportadoraapi.entity.Usuario;
+import br.com.uniamerica.transportadora.transportadoraapi.entity.*;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.math.BigDecimal;
@@ -12,9 +11,13 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 @Repository
-public interface DespesaRepository extends JpaRepository<DespesaRepository, Long> {
+public interface DespesaRepository extends JpaRepository<Despesa, Long> {
 
     public List<Despesa> findByAtivoTrue();
+
+    @Query(value = "select * from transportadora.tb_despesas" +
+            "where nome ilike '%' || :nome || '%' ", nativeQuery = true)
+    public List<Despesa> findByLikeNomeAndAtivoTrue(@Param("nome")final String nome);
 
     public List<Despesa> findByTipoDespesa (final TipoDespesa tipoDespesa);
 

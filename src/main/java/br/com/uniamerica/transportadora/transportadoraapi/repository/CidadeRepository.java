@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface CidadeRepository extends JpaRepository<CidadeRepository, Long> {
+public interface CidadeRepository extends JpaRepository<Cidade, Long> {
 
     public List<Cidade> findByAtivoTrue();
 
