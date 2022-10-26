@@ -39,7 +39,7 @@ public class Usuario extends AbstractEntity {
 
     @Getter @Setter
     @Column(name = "telefone", length = 19 , nullable = false, unique = true)
-    private String telefone;
+    private int telefone;
 
     @Getter @Setter
     @Column(name = "data_nascimento", nullable = false)

@@ -11,5 +11,5 @@ public interface EstadoRepository extends JpaRepository<Estado, Long> {
 
     public List<Estado> findByAtivoTrue();
 
-    public List<Estado> findByNomeAndAtivoTrue(final String nome);
+    public List<Estado> findByNome(final String nome);
 }
