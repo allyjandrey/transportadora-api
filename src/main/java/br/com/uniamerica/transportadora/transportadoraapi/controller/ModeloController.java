@@ -22,7 +22,7 @@ public class ModeloController {
     ){
         try{
             this.modeloService.save(modelo);
-            return ResponseEntity.ok().body("O modelo foi registrado...");
+            return ResponseEntity.ok().body("O modelo foi registrado com sucesso");
         }catch (RuntimeException e){
             return ResponseEntity.badRequest().body(e.getMessage());
         }
@@ -49,7 +49,7 @@ public class ModeloController {
     ){
         try{
             this.modeloService.update(id, modelo);
-            return ResponseEntity.ok().body("O modelo foi atualizado com sucesso...");
+            return ResponseEntity.ok().body("O modelo foi atualizado com sucesso");
         }catch (RuntimeException e){
             return ResponseEntity.badRequest().body(e.getMessage());
         }
@@ -62,7 +62,7 @@ public class ModeloController {
     ){
         try{
             this.modeloService.delete(id, modelo);
-            return ResponseEntity.ok().body("O modelo foi deletado com sucesso...");
+            return ResponseEntity.ok().body("O modelo foi deletado com sucesso");
         }catch (RuntimeException e){
             return ResponseEntity.badRequest().body(e.getMessage());
         }

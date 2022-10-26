@@ -22,7 +22,7 @@ public class EstadoController {
     ){
         try{
             this.estadoService.save(estado);
-            return ResponseEntity.ok().body("O estado foi registrado...");
+            return ResponseEntity.ok().body("O estado foi registrado com sucesso");
         }catch (RuntimeException e){
             return ResponseEntity.badRequest().body(e.getMessage());
         }
@@ -49,7 +49,7 @@ public class EstadoController {
     ){
         try{
             this.estadoService.update(id, estado);
-            return ResponseEntity.ok().body("O estado  foi atualizado com sucesso...");
+            return ResponseEntity.ok().body("O estado  foi atualizado com sucesso");
         }catch (RuntimeException e){
             return ResponseEntity.badRequest().body(e.getMessage());
         }
@@ -62,7 +62,7 @@ public class EstadoController {
     ){
         try{
             this.estadoService.delete(id, estado);
-            return ResponseEntity.ok().body("O estado foi deletado com sucesso...");
+            return ResponseEntity.ok().body("O estado foi deletado com sucesso");
         }catch (RuntimeException e){
             return ResponseEntity.badRequest().body(e.getMessage());
         }

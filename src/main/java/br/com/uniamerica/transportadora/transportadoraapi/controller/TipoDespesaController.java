@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @Controller
-@RequestMapping("/api/tipoDespesa")
+@RequestMapping("/api/tipoDespesas")
 public class TipoDespesaController {
 
     @Autowired
@@ -22,7 +22,7 @@ public class TipoDespesaController {
     ){
         try{
             this.tipoDespesaService.save(tipoDespesa);
-            return ResponseEntity.ok().body("O tipo da despesa foi registrada...");
+            return ResponseEntity.ok().body("O tipo da despesa foi registrada com sucesso");
         }catch (RuntimeException e){
             return ResponseEntity.badRequest().body(e.getMessage());
         }
@@ -49,7 +49,7 @@ public class TipoDespesaController {
     ){
         try{
             this.tipoDespesaService.update(id, tipoDespesa);
-            return ResponseEntity.ok().body("O tipo da despesa foi atualizada com sucesso...");
+            return ResponseEntity.ok().body("O tipo da despesa foi atualizada com sucesso");
         }catch (RuntimeException e){
             return ResponseEntity.badRequest().body(e.getMessage());
         }
@@ -62,7 +62,7 @@ public class TipoDespesaController {
     ){
         try{
             this.tipoDespesaService.delete(id, tipoDespesa);
-            return ResponseEntity.ok().body("O tipo da despesa foi deletada com sucesso...");
+            return ResponseEntity.ok().body("O tipo da despesa foi deletada com sucesso");
         }catch (RuntimeException e){
             return ResponseEntity.badRequest().body(e.getMessage());
         }

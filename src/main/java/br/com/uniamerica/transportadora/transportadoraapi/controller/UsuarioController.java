@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @Controller
-@RequestMapping("/api/tipoDespesa")
+@RequestMapping("/api/usuarios")
 public class UsuarioController {
 
     @Autowired
@@ -22,7 +22,7 @@ public class UsuarioController {
     ){
         try{
             this.usuarioService.save(usuario);
-            return ResponseEntity.ok().body("O usuário foi registrado...");
+            return ResponseEntity.ok().body("O usuário foi registrado com sucesso");
         }catch (RuntimeException e){
             return ResponseEntity.badRequest().body(e.getMessage());
         }
@@ -49,7 +49,7 @@ public class UsuarioController {
     ){
         try{
             this.usuarioService.update(id, usuario);
-            return ResponseEntity.ok().body("O usuário foi atualizado com sucesso...");
+            return ResponseEntity.ok().body("O usuário foi atualizado com sucesso");
         }catch (RuntimeException e){
             return ResponseEntity.badRequest().body(e.getMessage());
         }
@@ -62,7 +62,7 @@ public class UsuarioController {
     ){
         try{
             this.usuarioService.delete(id, usuario);
-            return ResponseEntity.ok().body("O usuário foi deletado com sucesso...");
+            return ResponseEntity.ok().body("O usuário foi deletado com sucesso");
         }catch (RuntimeException e){
             return ResponseEntity.badRequest().body(e.getMessage());
         }

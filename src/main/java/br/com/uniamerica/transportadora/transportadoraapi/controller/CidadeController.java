@@ -21,7 +21,7 @@ public class CidadeController {
     ){
         try{
             this.cidadeService.save(cidade);
-            return ResponseEntity.ok().body("A cidade foi registrada...");
+            return ResponseEntity.ok().body("A cidade foi registrada com sucesso");
         }catch (RuntimeException e){
             return ResponseEntity.badRequest().body(e.getMessage());
         }
@@ -48,7 +48,7 @@ public class CidadeController {
     ){
         try{
             this.cidadeService.update(id, cidade);
-            return ResponseEntity.ok().body("A cidade foi atualizada com sucesso...");
+            return ResponseEntity.ok().body("A cidade foi atualizada com sucesso");
         }catch (RuntimeException e){
             return ResponseEntity.badRequest().body(e.getMessage());
         }
@@ -61,7 +61,7 @@ public class CidadeController {
     ){
         try{
             this.cidadeService.delete(id, cidade);
-            return ResponseEntity.ok().body("A cidade foi deletada com sucesso...");
+            return ResponseEntity.ok().body("A cidade foi deletada com sucesso");
         }catch (RuntimeException e){
             return ResponseEntity.badRequest().body(e.getMessage());
         }

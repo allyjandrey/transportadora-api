@@ -22,7 +22,7 @@ public class CaminhaoController {
     ){
         try{
             this.caminhaoService.save(caminhao);
-            return ResponseEntity.ok().body("Caminhão cadastrado...");
+            return ResponseEntity.ok().body("O caminhão foi cadastrado com sucesso");
         }catch (RuntimeException e){
             return ResponseEntity.badRequest().body(e.getMessage());
         }
@@ -44,25 +44,25 @@ public class CaminhaoController {
 
     @PutMapping("/{id}")
     public ResponseEntity<?> atualizar(
-            @PathVariable Long idCaminhao,
+            @PathVariable Long id,
             @RequestBody Caminhao caminhao
     ){
         try{
-            this.caminhaoService.update(idCaminhao, caminhao);
-            return ResponseEntity.ok().body("Caminhão atualizado com sucesso...");
+            this.caminhaoService.update(id, caminhao);
+            return ResponseEntity.ok().body("O caminhão foi atualizado com sucesso");
         }catch (RuntimeException e){
             return ResponseEntity.badRequest().body(e.getMessage());
         }
     }
 
-    @DeleteMapping("/{idCaminhao}")
+    @DeleteMapping("/{id}")
     public ResponseEntity<?> deletar(
-            @PathVariable Long idCaminhao,
+            @PathVariable Long id,
             @RequestBody Caminhao caminhao
     ){
         try{
-            this.caminhaoService.delete(idCaminhao, caminhao);
-            return ResponseEntity.ok().body("Caminhão deletado com sucesso...");
+            this.caminhaoService.delete(id, caminhao);
+            return ResponseEntity.ok().body("O caminhão foi deletado com sucesso");
         }catch (RuntimeException e){
             return ResponseEntity.badRequest().body(e.getMessage());
         }

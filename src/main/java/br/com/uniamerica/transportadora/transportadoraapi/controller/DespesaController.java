@@ -22,7 +22,7 @@ public class DespesaController {
     ){
         try{
             this.despesaService.save(despesa);
-            return ResponseEntity.ok().body("A despesa foi registrada...");
+            return ResponseEntity.ok().body("A despesa foi registrada");
         }catch (RuntimeException e){
             return ResponseEntity.badRequest().body(e.getMessage());
         }
@@ -49,7 +49,7 @@ public class DespesaController {
     ){
         try{
             this.despesaService.update(id, despesa);
-            return ResponseEntity.ok().body("A despesa foi atualizada com sucesso...");
+            return ResponseEntity.ok().body("A despesa foi atualizada com sucesso");
         }catch (RuntimeException e){
             return ResponseEntity.badRequest().body(e.getMessage());
         }
@@ -62,7 +62,7 @@ public class DespesaController {
     ){
         try{
             this.despesaService.delete(id, despesa);
-            return ResponseEntity.ok().body("A despesa foi deletada com sucesso...");
+            return ResponseEntity.ok().body("A despesa foi deletada com sucesso");
         }catch (RuntimeException e){
             return ResponseEntity.badRequest().body(e.getMessage());
         }
