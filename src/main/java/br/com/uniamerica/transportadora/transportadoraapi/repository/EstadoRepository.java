@@ -14,6 +14,6 @@ public interface EstadoRepository extends JpaRepository<Estado, Long> {
     public List<Estado> findByAtivoTrue();
 
     @Query(value = "select * from transportadora.tb_estados" +
-    "where nome ilike '%' || :nome || '%' ", nativeQuery = true)
-    public List<Estado> findByLikeNomeAndAtivoTrue(@Param("nome")final String nome);
+            "where nome ilike '%' || :nome || '%' ", nativeQuery = true)
+    public List<Estado> findByLikeNomeAndAtivoTrue(@Param("nome") final String nome);
 }

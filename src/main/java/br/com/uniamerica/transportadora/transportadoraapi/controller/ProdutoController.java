@@ -19,11 +19,11 @@ public class ProdutoController {
     @PostMapping
     public ResponseEntity<?> cadastrar(
             @RequestBody Produto produto
-    ){
-        try{
+    ) {
+        try {
             this.produtoService.save(produto);
             return ResponseEntity.ok().body("O produto foi registrado com sucesso");
-        }catch (RuntimeException e){
+        } catch (RuntimeException e) {
             return ResponseEntity.badRequest().body(e.getMessage());
         }
     }
@@ -31,14 +31,14 @@ public class ProdutoController {
     @GetMapping
     public ResponseEntity<List<Produto>> listAll(
 
-    ){
+    ) {
         return ResponseEntity.ok().body(this.produtoService.listAll());
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<Produto> findById(
             @PathVariable("id") Long id
-    ){
+    ) {
         return ResponseEntity.ok().body(this.produtoService.findById(id));
     }
 
@@ -46,11 +46,11 @@ public class ProdutoController {
     public ResponseEntity<?> atualizar(
             @PathVariable Long id,
             @RequestBody Produto produto
-    ){
-        try{
+    ) {
+        try {
             this.produtoService.update(id, produto);
             return ResponseEntity.ok().body("O produto foi atualizado com sucesso");
-        }catch (RuntimeException e){
+        } catch (RuntimeException e) {
             return ResponseEntity.badRequest().body(e.getMessage());
         }
     }
@@ -59,11 +59,11 @@ public class ProdutoController {
     public ResponseEntity<?> deletar(
             @PathVariable Long id,
             @RequestBody Produto produto
-    ){
-        try{
+    ) {
+        try {
             this.produtoService.delete(id, produto);
             return ResponseEntity.ok().body("O produto foi deletado com sucesso");
-        }catch (RuntimeException e){
+        } catch (RuntimeException e) {
             return ResponseEntity.badRequest().body(e.getMessage());
         }
     }

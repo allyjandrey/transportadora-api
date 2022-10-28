@@ -29,7 +29,7 @@ public class MarcaService {
 
     @Transactional
     public void update(Long id, Marca marca) {
-        if(id == marca.getId()) {
+        if (id == marca.getId()) {
             this.marcaRepository.save(marca);
         } else {
             throw new RuntimeException();
@@ -38,7 +38,7 @@ public class MarcaService {
 
     @Transactional
     public void delete(Long id, Marca marca) {
-        if(id == marca.getId()) {
+        if (id == marca.getId()) {
             this.marcaRepository.delete(marca);
         } else {
             throw new RuntimeException();

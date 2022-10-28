@@ -29,7 +29,7 @@ public class ProdutoService {
 
     @Transactional
     public void update(Long id, Produto produto) {
-        if(id == produto.getId()) {
+        if (id == produto.getId()) {
             this.produtoRepository.save(produto);
         } else {
             throw new RuntimeException();
@@ -38,7 +38,7 @@ public class ProdutoService {
 
     @Transactional
     public void delete(Long id, Produto produto) {
-        if(id == produto.getId()) {
+        if (id == produto.getId()) {
             this.produtoRepository.delete(produto);
         } else {
             throw new RuntimeException();

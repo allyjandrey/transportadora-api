@@ -11,5 +11,5 @@ public interface TipoDespesaRepository extends JpaRepository<TipoDespesa, Long> 
 
     public List<TipoDespesa> findByAtivoTrue();
 
-    public List<TipoDespesa> findByNome (final String nome);
+    public List<TipoDespesa> findByNome(final String nome);
 }

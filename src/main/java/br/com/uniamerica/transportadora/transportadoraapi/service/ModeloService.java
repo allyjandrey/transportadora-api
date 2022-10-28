@@ -1,5 +1,6 @@
 package br.com.uniamerica.transportadora.transportadoraapi.service;
 
+import br.com.uniamerica.transportadora.transportadoraapi.entity.Marca;
 import br.com.uniamerica.transportadora.transportadoraapi.entity.Modelo;
 import br.com.uniamerica.transportadora.transportadoraapi.repository.ModeloRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,7 +30,7 @@ public class ModeloService {
 
     @Transactional
     public void update(Long id, Modelo modelo) {
-        if(id == modelo.getId()) {
+        if (id == modelo.getId()) {
             this.modeloRepository.save(modelo);
         } else {
             throw new RuntimeException();
@@ -38,7 +39,7 @@ public class ModeloService {
 
     @Transactional
     public void delete(Long id, Modelo modelo) {
-        if(id == modelo.getId()) {
+        if (id == modelo.getId()) {
             this.modeloRepository.delete(modelo);
         } else {
             throw new RuntimeException();

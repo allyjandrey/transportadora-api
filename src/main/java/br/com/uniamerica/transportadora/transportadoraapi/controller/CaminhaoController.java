@@ -19,11 +19,11 @@ public class CaminhaoController {
     @PostMapping
     public ResponseEntity<?> cadastrar(
             @RequestBody Caminhao caminhao
-    ){
-        try{
+    ) {
+        try {
             this.caminhaoService.save(caminhao);
             return ResponseEntity.ok().body("O caminhão foi cadastrado com sucesso");
-        }catch (RuntimeException e){
+        } catch (RuntimeException e) {
             return ResponseEntity.badRequest().body(e.getMessage());
         }
     }
@@ -31,14 +31,14 @@ public class CaminhaoController {
     @GetMapping
     public ResponseEntity<List<Caminhao>> listAll(
 
-    ){
+    ) {
         return ResponseEntity.ok().body(this.caminhaoService.listAll());
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<Caminhao> findById(
             @PathVariable("id") Long id
-    ){
+    ) {
         return ResponseEntity.ok().body(this.caminhaoService.findById(id));
     }
 
@@ -46,11 +46,11 @@ public class CaminhaoController {
     public ResponseEntity<?> atualizar(
             @PathVariable Long id,
             @RequestBody Caminhao caminhao
-    ){
-        try{
+    ) {
+        try {
             this.caminhaoService.update(id, caminhao);
             return ResponseEntity.ok().body("O caminhão foi atualizado com sucesso");
-        }catch (RuntimeException e){
+        } catch (RuntimeException e) {
             return ResponseEntity.badRequest().body(e.getMessage());
         }
     }
@@ -59,11 +59,11 @@ public class CaminhaoController {
     public ResponseEntity<?> deletar(
             @PathVariable Long id,
             @RequestBody Caminhao caminhao
-    ){
-        try{
+    ) {
+        try {
             this.caminhaoService.delete(id, caminhao);
             return ResponseEntity.ok().body("O caminhão foi deletado com sucesso");
-        }catch (RuntimeException e){
+        } catch (RuntimeException e) {
             return ResponseEntity.badRequest().body(e.getMessage());
         }
     }

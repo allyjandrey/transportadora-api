@@ -1,4 +1,5 @@
 package br.com.uniamerica.transportadora.transportadoraapi.service;
+
 import br.com.uniamerica.transportadora.transportadoraapi.entity.Caminhao;
 import br.com.uniamerica.transportadora.transportadoraapi.repository.CaminhaoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,7 +29,7 @@ public class CaminhaoService {
 
     @Transactional
     public void update(Long id, Caminhao caminhao) {
-        if(id == caminhao.getId()) {
+        if (id == caminhao.getId()) {
             this.caminhaoRepository.save(caminhao);
         } else {
             throw new RuntimeException();
@@ -37,7 +38,7 @@ public class CaminhaoService {
 
     @Transactional
     public void delete(Long id, Caminhao caminhao) {
-        if(id == caminhao.getId()) {
+        if (id == caminhao.getId()) {
             this.caminhaoRepository.delete(caminhao);
         } else {
             throw new RuntimeException();

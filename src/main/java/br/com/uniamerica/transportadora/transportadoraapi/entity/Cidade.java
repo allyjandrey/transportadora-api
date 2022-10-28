@@ -8,18 +8,20 @@ import javax.persistence.*;
 @Entity
 @Table(name = "tb_cidades", schema = "transportadora",
         uniqueConstraints = {
-            @UniqueConstraint(
-                    columnNames = {"nome", "estados_id"}
-            )
+                @UniqueConstraint(
+                        columnNames = {"nome", "estados_id"}
+                )
         }
 )
 public class Cidade extends AbstractEntity {
 
-    @Getter @Setter
+    @Getter
+    @Setter
     @Column(name = "nome", length = 15, nullable = false)
     private String nome;
 
-    @Getter @Setter
+    @Getter
+    @Setter
     @JoinColumn(name = "estados_id", nullable = false)
     @ManyToOne(fetch = FetchType.EAGER, optional = false)
     private Estado estado;

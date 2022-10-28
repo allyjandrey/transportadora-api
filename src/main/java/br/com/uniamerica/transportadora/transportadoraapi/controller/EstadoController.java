@@ -19,11 +19,11 @@ public class EstadoController {
     @PostMapping
     public ResponseEntity<?> cadastrar(
             @RequestBody Estado estado
-    ){
-        try{
+    ) {
+        try {
             this.estadoService.save(estado);
             return ResponseEntity.ok().body("O estado foi registrado com sucesso");
-        }catch (RuntimeException e){
+        } catch (RuntimeException e) {
             return ResponseEntity.badRequest().body(e.getMessage());
         }
     }
@@ -31,14 +31,14 @@ public class EstadoController {
     @GetMapping
     public ResponseEntity<List<Estado>> listAll(
 
-    ){
+    ) {
         return ResponseEntity.ok().body(this.estadoService.listAll());
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<Estado> findById(
             @PathVariable("id") Long id
-    ){
+    ) {
         return ResponseEntity.ok().body(this.estadoService.findById(id));
     }
 
@@ -46,11 +46,11 @@ public class EstadoController {
     public ResponseEntity<?> atualizar(
             @PathVariable Long id,
             @RequestBody Estado estado
-    ){
-        try{
+    ) {
+        try {
             this.estadoService.update(id, estado);
             return ResponseEntity.ok().body("O estado  foi atualizado com sucesso");
-        }catch (RuntimeException e){
+        } catch (RuntimeException e) {
             return ResponseEntity.badRequest().body(e.getMessage());
         }
     }
@@ -59,11 +59,11 @@ public class EstadoController {
     public ResponseEntity<?> deletar(
             @PathVariable Long id,
             @RequestBody Estado estado
-    ){
-        try{
+    ) {
+        try {
             this.estadoService.delete(id, estado);
             return ResponseEntity.ok().body("O estado foi deletado com sucesso");
-        }catch (RuntimeException e){
+        } catch (RuntimeException e) {
             return ResponseEntity.badRequest().body(e.getMessage());
         }
     }

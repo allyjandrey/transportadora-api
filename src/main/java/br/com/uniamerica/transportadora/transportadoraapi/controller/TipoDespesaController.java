@@ -19,11 +19,11 @@ public class TipoDespesaController {
     @PostMapping
     public ResponseEntity<?> cadastrar(
             @RequestBody TipoDespesa tipoDespesa
-    ){
-        try{
+    ) {
+        try {
             this.tipoDespesaService.save(tipoDespesa);
             return ResponseEntity.ok().body("O tipo da despesa foi registrada com sucesso");
-        }catch (RuntimeException e){
+        } catch (RuntimeException e) {
             return ResponseEntity.badRequest().body(e.getMessage());
         }
     }
@@ -31,14 +31,14 @@ public class TipoDespesaController {
     @GetMapping
     public ResponseEntity<List<TipoDespesa>> listAll(
 
-    ){
+    ) {
         return ResponseEntity.ok().body(this.tipoDespesaService.listAll());
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<TipoDespesa> findById(
             @PathVariable("id") Long id
-    ){
+    ) {
         return ResponseEntity.ok().body(this.tipoDespesaService.findById(id));
     }
 
@@ -46,11 +46,11 @@ public class TipoDespesaController {
     public ResponseEntity<?> atualizar(
             @PathVariable Long id,
             @RequestBody TipoDespesa tipoDespesa
-    ){
-        try{
+    ) {
+        try {
             this.tipoDespesaService.update(id, tipoDespesa);
             return ResponseEntity.ok().body("O tipo da despesa foi atualizada com sucesso");
-        }catch (RuntimeException e){
+        } catch (RuntimeException e) {
             return ResponseEntity.badRequest().body(e.getMessage());
         }
     }
@@ -59,11 +59,11 @@ public class TipoDespesaController {
     public ResponseEntity<?> deletar(
             @PathVariable Long id,
             @RequestBody TipoDespesa tipoDespesa
-    ){
-        try{
+    ) {
+        try {
             this.tipoDespesaService.delete(id, tipoDespesa);
             return ResponseEntity.ok().body("O tipo da despesa foi deletada com sucesso");
-        }catch (RuntimeException e){
+        } catch (RuntimeException e) {
             return ResponseEntity.badRequest().body(e.getMessage());
         }
     }

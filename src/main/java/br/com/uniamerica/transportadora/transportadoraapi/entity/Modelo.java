@@ -9,11 +9,13 @@ import javax.persistence.*;
 @Table(name = "tb_modelos", schema = "transportadora")
 public class Modelo extends AbstractEntity {
 
-    @Getter @Setter
+    @Getter
+    @Setter
     @Column(name = "nome", length = 15, nullable = false)
     private String nome;
 
-    @Getter @Setter
+    @Getter
+    @Setter
     @JoinColumn(name = "id_marca", nullable = false)
     @ManyToOne(fetch = FetchType.EAGER, optional = false)
     private Marca marca;

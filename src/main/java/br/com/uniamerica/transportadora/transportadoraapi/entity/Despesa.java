@@ -11,30 +11,36 @@ import java.time.LocalDateTime;
 @Table(name = "tb_despesas", schema = "transportadora")
 public class Despesa extends AbstractEntity {
 
-    @Getter @Setter
+    @Getter
+    @Setter
     @JoinColumn(name = "id_tipo_despesa", nullable = false)
     @ManyToOne(fetch = FetchType.EAGER, optional = false)
     private TipoDespesa tipoDespesa;
 
-    @Getter @Setter
+    @Getter
+    @Setter
     @Column(name = "valor", nullable = false, precision = 5, scale = 3)
     private BigDecimal valor;
 
-    @Getter @Setter
+    @Getter
+    @Setter
     @JoinColumn(name = "id_motorista", nullable = false)
     @ManyToOne(fetch = FetchType.EAGER, optional = false)
     private Usuario motorista;
 
-    @Getter @Setter
+    @Getter
+    @Setter
     @Column(name = "data", nullable = false)
     private LocalDateTime data;
 
-    @Getter @Setter
+    @Getter
+    @Setter
     @JoinColumn(name = "id_aprovador", nullable = false)
     @ManyToOne(fetch = FetchType.EAGER, optional = false)
     private Usuario aprovador;
 
-    @Getter @Setter
+    @Getter
+    @Setter
     @JoinColumn(name = "id_frete", nullable = false)
     @ManyToOne(fetch = FetchType.EAGER, optional = false)
     private Frete frete;

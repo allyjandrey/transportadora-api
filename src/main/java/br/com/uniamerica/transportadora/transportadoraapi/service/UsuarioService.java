@@ -29,7 +29,7 @@ public class UsuarioService {
 
     @Transactional
     public void update(Long id, Usuario usuario) {
-        if(id == usuario.getId()) {
+        if (id == usuario.getId()) {
             this.usuarioRepository.save(usuario);
         } else {
             throw new RuntimeException();
@@ -38,7 +38,7 @@ public class UsuarioService {
 
     @Transactional
     public void delete(Long id, Usuario usuario) {
-        if(id == usuario.getId()) {
+        if (id == usuario.getId()) {
             this.usuarioRepository.delete(usuario);
         } else {
             throw new RuntimeException();

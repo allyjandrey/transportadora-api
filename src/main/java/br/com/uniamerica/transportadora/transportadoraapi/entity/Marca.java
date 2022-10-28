@@ -11,7 +11,8 @@ import javax.persistence.Table;
 @Table(name = "tb_marcas", schema = "transportadora")
 public class Marca extends AbstractEntity {
 
-    @Getter @Setter
+    @Getter
+    @Setter
     @Column(name = "valor", length = 7, nullable = false)
     private String valor;
 }

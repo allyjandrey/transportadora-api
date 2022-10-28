@@ -15,19 +15,27 @@ public interface DespesaRepository extends JpaRepository<Despesa, Long> {
 
     public List<Despesa> findByAtivoTrue();
 
+    @Query("" +
+            "from Despesa despesa" +
+            "where 1 = 1" +
+            "despesa.frete.id = :idFrete" +
+            "despesa.ativo = true" +
+            "despesa.aprovador.id is null")
+    public List<Despesa> findByFreteAndAprovadorIsNull(@Param("idFrete") Long idFrete);
+
     @Query(value = "select * from transportadora.tb_despesas" +
             "where nome ilike '%' || :nome || '%' ", nativeQuery = true)
-    public List<Despesa> findByLikeNomeAndAtivoTrue(@Param("nome")final String nome);
+    public List<Despesa> findByLikeNomeAndAtivoTrue(@Param("nome") final String nome);
 
-    public List<Despesa> findByTipoDespesa (final TipoDespesa tipoDespesa);
+    public List<Despesa> findByTipoDespesa(final TipoDespesa tipoDespesa);
 
-    public List<Despesa> findByValor (final BigDecimal valor);
+    public List<Despesa> findByValor(final BigDecimal valor);
 
-    public List<Despesa> findByMotorista (final Usuario motorista);
+    public List<Despesa> findByMotorista(final Usuario motorista);
 
-    public List<Despesa> findByData (final LocalDateTime data);
+    public List<Despesa> findByData(final LocalDateTime data);
 
-    public List<Despesa> findByAprovador (final Usuario aprovador);
+    public List<Despesa> findByAprovador(final Usuario aprovador);
 
-    public List<Despesa> findByFrete (final Frete frete);
+    public List<Despesa> findByFrete(final Frete frete);
 }

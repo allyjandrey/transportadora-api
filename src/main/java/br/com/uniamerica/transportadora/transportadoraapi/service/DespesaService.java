@@ -29,7 +29,7 @@ public class DespesaService {
 
     @Transactional
     public void update(Long id, Despesa despesa) {
-        if(id == despesa.getId()) {
+        if (id == despesa.getId()) {
             this.despesaRepository.save(despesa);
         } else {
             throw new RuntimeException();
@@ -38,7 +38,7 @@ public class DespesaService {
 
     @Transactional
     public void delete(Long id, Despesa despesa) {
-        if(id == despesa.getId()) {
+        if (id == despesa.getId()) {
             this.despesaRepository.delete(despesa);
         } else {
             throw new RuntimeException();

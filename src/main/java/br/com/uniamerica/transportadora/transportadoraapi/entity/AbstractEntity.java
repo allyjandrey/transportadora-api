@@ -10,31 +10,35 @@ import java.time.LocalDateTime;
 public abstract class AbstractEntity {
 
     @Id
-    @Getter @Setter
+    @Getter
+    @Setter
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", nullable = false, unique = true)
     private Long id;
 
-    @Getter @Setter
+    @Getter
+    @Setter
     @Column(name = "cadastro", nullable = false)
     private LocalDateTime cadastro;
 
-    @Getter @Setter
+    @Getter
+    @Setter
     @Column(name = "alterado")
     private LocalDateTime alterado;
 
-    @Getter @Setter
+    @Getter
+    @Setter
     @Column(name = "ativo", nullable = false)
     private boolean ativo;
 
     @PrePersist
-    public void dataCadastro(){
+    public void dataCadastro() {
         this.setCadastro(LocalDateTime.now());
         this.setAtivo(true);
     }
 
     @PreUpdate
-    public void dataAlterado(){
+    public void dataAlterado() {
         this.setAlterado(LocalDateTime.now());
     }
 }

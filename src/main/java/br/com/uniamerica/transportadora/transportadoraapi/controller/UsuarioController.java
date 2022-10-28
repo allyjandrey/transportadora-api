@@ -19,11 +19,11 @@ public class UsuarioController {
     @PostMapping
     public ResponseEntity<?> cadastrar(
             @RequestBody Usuario usuario
-    ){
-        try{
+    ) {
+        try {
             this.usuarioService.save(usuario);
             return ResponseEntity.ok().body("O usuário foi registrado com sucesso");
-        }catch (RuntimeException e){
+        } catch (RuntimeException e) {
             return ResponseEntity.badRequest().body(e.getMessage());
         }
     }
@@ -31,14 +31,14 @@ public class UsuarioController {
     @GetMapping
     public ResponseEntity<List<Usuario>> listAll(
 
-    ){
+    ) {
         return ResponseEntity.ok().body(this.usuarioService.listAll());
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<Usuario> findById(
             @PathVariable("id") Long id
-    ){
+    ) {
         return ResponseEntity.ok().body(this.usuarioService.findById(id));
     }
 
@@ -46,11 +46,11 @@ public class UsuarioController {
     public ResponseEntity<?> atualizar(
             @PathVariable Long id,
             @RequestBody Usuario usuario
-    ){
-        try{
+    ) {
+        try {
             this.usuarioService.update(id, usuario);
             return ResponseEntity.ok().body("O usuário foi atualizado com sucesso");
-        }catch (RuntimeException e){
+        } catch (RuntimeException e) {
             return ResponseEntity.badRequest().body(e.getMessage());
         }
     }
@@ -59,11 +59,11 @@ public class UsuarioController {
     public ResponseEntity<?> deletar(
             @PathVariable Long id,
             @RequestBody Usuario usuario
-    ){
-        try{
+    ) {
+        try {
             this.usuarioService.delete(id, usuario);
             return ResponseEntity.ok().body("O usuário foi deletado com sucesso");
-        }catch (RuntimeException e){
+        } catch (RuntimeException e) {
             return ResponseEntity.badRequest().body(e.getMessage());
         }
     }

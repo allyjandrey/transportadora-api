@@ -19,11 +19,11 @@ public class DespesaController {
     @PostMapping
     public ResponseEntity<?> cadastrar(
             @RequestBody Despesa despesa
-    ){
-        try{
+    ) {
+        try {
             this.despesaService.save(despesa);
             return ResponseEntity.ok().body("A despesa foi registrada");
-        }catch (RuntimeException e){
+        } catch (RuntimeException e) {
             return ResponseEntity.badRequest().body(e.getMessage());
         }
     }
@@ -31,14 +31,14 @@ public class DespesaController {
     @GetMapping
     public ResponseEntity<List<Despesa>> listAll(
 
-    ){
+    ) {
         return ResponseEntity.ok().body(this.despesaService.listAll());
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<Despesa> findById(
             @PathVariable("id") Long id
-    ){
+    ) {
         return ResponseEntity.ok().body(this.despesaService.findById(id));
     }
 
@@ -46,11 +46,11 @@ public class DespesaController {
     public ResponseEntity<?> atualizar(
             @PathVariable Long id,
             @RequestBody Despesa despesa
-    ){
-        try{
+    ) {
+        try {
             this.despesaService.update(id, despesa);
             return ResponseEntity.ok().body("A despesa foi atualizada com sucesso");
-        }catch (RuntimeException e){
+        } catch (RuntimeException e) {
             return ResponseEntity.badRequest().body(e.getMessage());
         }
     }
@@ -59,11 +59,11 @@ public class DespesaController {
     public ResponseEntity<?> deletar(
             @PathVariable Long id,
             @RequestBody Despesa despesa
-    ){
-        try{
+    ) {
+        try {
             this.despesaService.delete(id, despesa);
             return ResponseEntity.ok().body("A despesa foi deletada com sucesso");
-        }catch (RuntimeException e){
+        } catch (RuntimeException e) {
             return ResponseEntity.badRequest().body(e.getMessage());
         }
     }

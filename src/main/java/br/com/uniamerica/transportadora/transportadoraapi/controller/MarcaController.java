@@ -19,11 +19,11 @@ public class MarcaController {
     @PostMapping
     public ResponseEntity<?> cadastrar(
             @RequestBody Marca marca
-    ){
-        try{
+    ) {
+        try {
             this.marcaService.save(marca);
             return ResponseEntity.ok().body("A marca foi registrada com sucesso");
-        }catch (RuntimeException e){
+        } catch (RuntimeException e) {
             return ResponseEntity.badRequest().body(e.getMessage());
         }
     }
@@ -31,14 +31,14 @@ public class MarcaController {
     @GetMapping
     public ResponseEntity<List<Marca>> listAll(
 
-    ){
+    ) {
         return ResponseEntity.ok().body(this.marcaService.listAll());
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<Marca> findById(
             @PathVariable("id") Long id
-    ){
+    ) {
         return ResponseEntity.ok().body(this.marcaService.findById(id));
     }
 
@@ -46,11 +46,11 @@ public class MarcaController {
     public ResponseEntity<?> atualizar(
             @PathVariable Long id,
             @RequestBody Marca marca
-    ){
-        try{
+    ) {
+        try {
             this.marcaService.update(id, marca);
             return ResponseEntity.ok().body("A marca foi atualizada com sucesso");
-        }catch (RuntimeException e){
+        } catch (RuntimeException e) {
             return ResponseEntity.badRequest().body(e.getMessage());
         }
     }
@@ -59,11 +59,11 @@ public class MarcaController {
     public ResponseEntity<?> deletar(
             @PathVariable Long id,
             @RequestBody Marca marca
-    ){
-        try{
+    ) {
+        try {
             this.marcaService.delete(id, marca);
             return ResponseEntity.ok().body("A marca foi deletada com sucesso");
-        }catch (RuntimeException e){
+        } catch (RuntimeException e) {
             return ResponseEntity.badRequest().body(e.getMessage());
         }
     }

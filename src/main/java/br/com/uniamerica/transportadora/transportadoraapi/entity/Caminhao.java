@@ -13,25 +13,30 @@ import javax.persistence.*;
 @Table(name = "tb_caminhoes", schema = "transportadora")
 public class Caminhao extends AbstractEntity {
 
-    @Getter @Setter
+    @Getter
+    @Setter
     @Column(name = "placa", length = 15, nullable = false, unique = true)
     private String placa;
 
-    @Getter @Setter
+    @Getter
+    @Setter
     @JoinColumn(name = "id_modelo", nullable = false)
     @ManyToOne(fetch = FetchType.EAGER, optional = false)
     private Modelo modelo;
 
-    @Getter @Setter
+    @Getter
+    @Setter
     @Column(name = "ano", nullable = false)
     private int ano;
 
-    @Getter @Setter
+    @Getter
+    @Setter
     @Enumerated(EnumType.STRING)
     @Column(name = "cor", length = 15, nullable = false)
     private Cor cor;
 
-    @Getter @Setter
+    @Getter
+    @Setter
     @Column(name = "observacao")
     private String observacao;
 }

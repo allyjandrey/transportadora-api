@@ -11,5 +11,5 @@ public interface MarcaRepository extends JpaRepository<Marca, Long> {
 
     public List<Marca> findByAtivoTrue();
 
-    public List<Marca> findByValor (final String valor);
+    public List<Marca> findByValor(final String valor);
 }

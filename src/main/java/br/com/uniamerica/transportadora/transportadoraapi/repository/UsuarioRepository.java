@@ -12,15 +12,15 @@ public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
 
     public List<Usuario> findByAtivoTrue();
 
-    public List<Usuario> findByLogin (final String login);
+    public List<Usuario> findByLogin(final String login);
 
-    public List<Usuario> findByGrupo (final Grupo grupo);
+    public List<Usuario> findByGrupo(final Grupo grupo);
 
-    public List<Usuario> findByNome (final String nome);
+    public List<Usuario> findByNome(final String nome);
 
-    public List<Usuario> findByCPF (final String cpf);
+    public List<Usuario> findByCPF(final String cpf);
 
-    public List<Usuario> findByTelefone (final int telefone);
+    public List<Usuario> findByTelefone(final int telefone);
 
-    public List<Usuario> findByEndereco (final String endereco);
+    public List<Usuario> findByEndereco(final String endereco);
 }
