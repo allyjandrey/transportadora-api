@@ -26,12 +26,64 @@ public class FreteService {
     private HistoricoFreteService historicoFreteService;
 
     @Transactional(rollbackFor = Exception.class, propagation = Propagation.REQUIRES_NEW)
+    public void atualizarStatusCarga(final Long idFrete) {
+
+    }
+
+    @Transactional(rollbackFor = Exception.class, propagation = Propagation.REQUIRES_NEW)
+    public void atualizarStatusEmTransporte(final Long idFrete) {
+
+        final Frete frete = this.freteRepository.findById(idFrete).orElse(null);
+
+        Assert.isTrue(frete != null, "Não foi possível localizar o frete informado");
+
+        Assert.isTrue(!frete.getStatusFrete().equals(StatusFrete.INTERROMPIDO),
+                "Não é possível iniciar o transporte do frete, pois seu status é diferente de interrompido");
+
+        frete.setStatusFrete(StatusFrete.EM_TRANSPORTE);
+        this.freteRepository.save(frete);
+
+        this.historicoFreteService.cadastrar(frete, StatusFrete.EM_TRANSPORTE);
+    }
+
+    @Transactional(rollbackFor = Exception.class, propagation = Propagation.REQUIRES_NEW)
+    public void atualizarStatusInterrompido(final Long idFrete) {
+
+        final Frete frete = this.freteRepository.findById(idFrete).orElse(null);
+
+        Assert.isTrue(frete != null, "Não foi possível localizar o frete informado");
+
+        Assert.isTrue(!frete.getStatusFrete().equals(StatusFrete.EM_TRANSPORTE),
+                "Não é possível iniciar o transporte do frete, pois seu status é diferente de interrompido");
+
+        frete.setStatusFrete(StatusFrete.INTERROMPIDO);
+        this.freteRepository.save(frete);
+
+        this.historicoFreteService.cadastrar(frete, StatusFrete.INTERROMPIDO);
+    }
+
+    @Transactional(rollbackFor = Exception.class, propagation = Propagation.REQUIRES_NEW)
+    public void atualizarStatusDescarga(final Long idFrete) {
+
+        final Frete frete = this.freteRepository.findById(idFrete).orElse(null);
+
+        Assert.isTrue(frete != null, "Não foi possível localizar o frete informado");
+
+        Assert.isTrue(!frete.getStatusFrete().equals(StatusFrete.EM_TRANSPORTE),
+                "Não é possível iniciar o transporte do frete, pois seu status é diferente de interrompido");
+
+        frete.setStatusFrete(StatusFrete.DESCARGA);
+        this.freteRepository.save(frete);
+
+        this.historicoFreteService.cadastrar(frete, StatusFrete.DESCARGA);
+    }
+
+    @Transactional(rollbackFor = Exception.class, propagation = Propagation.REQUIRES_NEW)
     public void atualizarStatusFaturado(final Long idFrete) {
 
         final Frete frete = this.freteRepository.findById(idFrete).orElse(new Frete());
 
         Assert.isTrue(frete != null, "Não foi possível localizar o frete informado");
-
 
         Assert.isTrue(!frete.getStatusFrete().equals(StatusFrete.DESCARGA),
                 "Não é possível faturar um frete que não está com o sucesso de descarte");
@@ -48,20 +100,18 @@ public class FreteService {
     }
 
     @Transactional(rollbackFor = Exception.class, propagation = Propagation.REQUIRES_NEW)
-    public void atualizarStatusEmTransporte(final Long idFrete) {
+    public void atualizarStatusCancelado(final Long idFrete) {
 
         final Frete frete = this.freteRepository.findById(idFrete).orElse(null);
 
-
         Assert.isTrue(frete != null, "Não foi possível localizar o frete informado");
 
-
-        Assert.isTrue(!frete.getStatusFrete().equals(StatusFrete.INTERROMPIDO),
+        Assert.isTrue(!frete.getStatusFrete().equals(StatusFrete.EM_TRANSPORTE),
                 "Não é possível iniciar o transporte do frete, pois seu status é diferente de interrompido");
 
-        frete.setStatusFrete(StatusFrete.EM_TRANSPORTE);
+        frete.setStatusFrete(StatusFrete.CANCELADO);
         this.freteRepository.save(frete);
 
-        this.historicoFreteService.cadastrar(frete, StatusFrete.EM_TRANSPORTE);
+        this.historicoFreteService.cadastrar(frete, StatusFrete.CANCELADO);
     }
 }
