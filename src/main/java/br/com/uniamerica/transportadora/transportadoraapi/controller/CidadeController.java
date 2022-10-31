@@ -3,7 +3,6 @@ package br.com.uniamerica.transportadora.transportadoraapi.controller;
 import br.com.uniamerica.transportadora.transportadoraapi.entity.Cidade;
 import br.com.uniamerica.transportadora.transportadoraapi.repository.CidadeRepository;
 import br.com.uniamerica.transportadora.transportadoraapi.service.CidadeService;
-import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;

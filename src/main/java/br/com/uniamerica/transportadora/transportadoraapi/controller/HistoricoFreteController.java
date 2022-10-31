@@ -1,6 +1,5 @@
 package br.com.uniamerica.transportadora.transportadoraapi.controller;
 
-import br.com.uniamerica.transportadora.transportadoraapi.entity.Caminhao;
 import br.com.uniamerica.transportadora.transportadoraapi.entity.HistoricoFrete;
 import br.com.uniamerica.transportadora.transportadoraapi.repository.HistoricoFreteRepository;
 import br.com.uniamerica.transportadora.transportadoraapi.service.HistoricoFreteService;

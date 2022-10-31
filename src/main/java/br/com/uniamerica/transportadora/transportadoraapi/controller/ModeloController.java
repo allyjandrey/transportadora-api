@@ -1,6 +1,5 @@
 package br.com.uniamerica.transportadora.transportadoraapi.controller;
 
-import br.com.uniamerica.transportadora.transportadoraapi.entity.Marca;
 import br.com.uniamerica.transportadora.transportadoraapi.entity.Modelo;
 import br.com.uniamerica.transportadora.transportadoraapi.service.ModeloService;
 import org.springframework.beans.factory.annotation.Autowired;
