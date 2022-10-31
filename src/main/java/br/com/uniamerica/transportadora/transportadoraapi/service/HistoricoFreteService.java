@@ -27,6 +27,10 @@ public class HistoricoFreteService {
         return this.historicoFreteRepository.findAll();
     }
 
+    public List<HistoricoFrete> findByFrete(Long id) {
+        return this.historicoFreteRepository.findByFrete(id);
+    }
+
     @Transactional(rollbackFor = Exception.class, propagation = Propagation.REQUIRES_NEW)
     public void cadastrar(Frete frete, StatusFrete statusFrete) {
 

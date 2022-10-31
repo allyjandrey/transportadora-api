@@ -40,7 +40,7 @@ public class CidadeController {
         return ResponseEntity.ok().body(this.cidadeService.listAll());
     }
 
-    @GetMapping("/estado")
+    @GetMapping("/cidades/{estadoId}")
     public ResponseEntity<?> findByEstado(
             @PathVariable("estado") Long estadoId
     ) {

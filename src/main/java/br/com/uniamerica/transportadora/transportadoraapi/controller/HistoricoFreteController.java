@@ -27,7 +27,7 @@ public class HistoricoFreteController {
         return ResponseEntity.ok().body(this.historicoFreteService.listAll());
     }
 
-    @GetMapping("/frete")
+    @GetMapping("/frete/{freteId}")
     public ResponseEntity<?> findByFrete(
             @PathVariable("freteId") Long freteId
     ) {

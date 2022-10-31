@@ -106,11 +106,23 @@ public class FreteService {
 
         Assert.isTrue(frete != null, "Não foi possível localizar o frete informado");
 
+        try {
+            if (frete.getStatusFrete().equals(StatusFrete.INTERROMPIDO)
+                    || frete.getStatusFrete().equals(StatusFrete.CARGA)) {
+                frete.setStatusFrete(StatusFrete.CANCELADO);
+                this.freteRepository.save(frete);
+                this.historicoFreteService.cadastrar(frete, StatusFrete.CANCELADO);
+            }
+        }catch (Exception e) {
+            throw new RuntimeException(e.getMessage());
+        }
+
         Assert.isTrue(!frete.getStatusFrete().equals(StatusFrete.EM_TRANSPORTE),
                 "Não é possível iniciar o transporte do frete, pois seu status é diferente de interrompido");
 
         frete.setStatusFrete(StatusFrete.CANCELADO);
         this.freteRepository.save(frete);
+
 
         this.historicoFreteService.cadastrar(frete, StatusFrete.CANCELADO);
     }

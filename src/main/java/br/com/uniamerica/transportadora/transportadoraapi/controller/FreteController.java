@@ -16,9 +16,9 @@ public class FreteController {
     private FreteService freteService;
 
     @PutMapping("/status/carga/{idFrete}")
-    public ResponseEntity<?> atualizarStatusCarga(@PathVariable("idFrete") final Long idFrete) {
+    public ResponseEntity<?> atualizarStatusCarga(@PathVariable("idFrete") final Long freteId) {
         try {
-            this.freteService.atualizarStatusCarga(idFrete);
+            this.freteService.atualizarStatusCarga(freteId);
         } catch (Exception e) {
             return ResponseEntity.badRequest().body(e.getMessage());
         }
@@ -26,9 +26,9 @@ public class FreteController {
     }
 
     @PutMapping("/status/em-transporte/{idFrete}")
-    public ResponseEntity<?> atualizarStatusEmTransporte(@PathVariable("idFrete") final Long idFrete) {
+    public ResponseEntity<?> atualizarStatusEmTransporte(@PathVariable("idFrete") final Long freteId) {
         try {
-            this.freteService.atualizarStatusEmTransporte(idFrete);
+            this.freteService.atualizarStatusEmTransporte(freteId);
         } catch (Exception e) {
             return ResponseEntity.badRequest().body(e.getMessage());
         }
@@ -36,19 +36,19 @@ public class FreteController {
     }
 
     @PutMapping("/status/interrompido/{idFrete}")
-    public ResponseEntity<?> atualizarStatusInterrompido(@PathVariable("idFrete") final Long idFrete) {
+    public ResponseEntity<?> atualizarStatusInterrompido(@PathVariable("idFrete") final Long freteId) {
         try {
-            this.freteService.atualizarStatusInterrompido(idFrete);
+            this.freteService.atualizarStatusInterrompido(freteId);
         } catch (Exception e) {
             return ResponseEntity.badRequest().body(e.getMessage());
         }
         return ResponseEntity.ok().body("O frete foi interrompido com sucesso");
     }
 
-    @PutMapping("/status/faturado/{idFrete}")
-    public ResponseEntity<?> atualizarStatusDescarga(@PathVariable("idFrete") final Long idFrete) {
+    @PutMapping("/status/descarga/{idFrete}")
+    public ResponseEntity<?> atualizarStatusDescarga(@PathVariable("idFrete") final Long freteId) {
         try {
-            this.freteService.atualizarStatusDescarga(idFrete);
+            this.freteService.atualizarStatusDescarga(freteId);
         } catch (Exception e) {
             return ResponseEntity.badRequest().body(e.getMessage());
         }
@@ -56,19 +56,19 @@ public class FreteController {
     }
 
     @PutMapping("/status/faturado/{idFrete}")
-    public ResponseEntity<?> atualizarStatusFaturado(@PathVariable("idFrete") final Long idFrete) {
+    public ResponseEntity<?> atualizarStatusFaturado(@PathVariable("idFrete") final Long freteId) {
         try {
-            this.freteService.atualizarStatusFaturado(idFrete);
+            this.freteService.atualizarStatusFaturado(freteId);
         } catch (Exception e) {
             return ResponseEntity.badRequest().body(e.getMessage());
         }
         return ResponseEntity.ok().body("O frete foi faturado com sucesso");
     }
 
-    @PutMapping("/status/faturado/{idFrete}")
-    public ResponseEntity<?> atualizarStatusCancelado(@PathVariable("idFrete") final Long idFrete) {
+    @PutMapping("/status/cancelado/{idFrete}")
+    public ResponseEntity<?> atualizarStatusCancelado(@PathVariable("idFrete") final Long freteId) {
         try {
-            this.freteService.atualizarStatusCancelado(idFrete);
+            this.freteService.atualizarStatusCancelado(freteId);
         } catch (Exception e) {
             return ResponseEntity.badRequest().body(e.getMessage());
         }

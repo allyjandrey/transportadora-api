@@ -40,21 +40,21 @@ public class ModeloController {
         return ResponseEntity.ok().body(this.modeloService.listAll());
     }
 
-    @GetMapping("/marca")
+    @GetMapping("/modelos/{marcaId}")
     public ResponseEntity<?> findByMarca(
             @PathVariable("marcaId") Long marcaId
     ) {
         return ResponseEntity.ok().body(this.modeloRepository.findByMarca(marcaId));
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/modelos/{id}")
     public ResponseEntity<Modelo> findById(
             @PathVariable("id") Long id
     ) {
         return ResponseEntity.ok().body(this.modeloService.findById(id));
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("/modelos/{id}")
     public ResponseEntity<?> atualizar(
             @PathVariable Long id,
             @RequestBody Modelo modelo
@@ -67,7 +67,7 @@ public class ModeloController {
         }
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/modelos/{id}")
     public ResponseEntity<?> deletar(
             @PathVariable Long id,
             @RequestBody Modelo modelo

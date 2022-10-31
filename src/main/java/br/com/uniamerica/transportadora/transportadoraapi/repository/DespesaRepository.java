@@ -18,10 +18,10 @@ public interface DespesaRepository extends JpaRepository<Despesa, Long> {
     @Query("" +
             "from Despesa despesa" +
             "where 1 = 1" +
-            "despesa.frete.id = :idFrete" +
+            "despesa.frete.id = :freteId" +
             "despesa.ativo = true" +
             "despesa.aprovador.id is null")
-    public List<Despesa> findByFreteAndAprovadorIsNull(@Param("idFrete") Long idFrete);
+    public List<Despesa> findByFreteAndAprovadorIsNull(@Param("freteId") Long freteId);
 
     @Query(value = "select * from transportadora.tb_despesas" +
             "where nome ilike '%' || :nome || '%' ", nativeQuery = true)

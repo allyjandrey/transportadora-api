@@ -1,6 +1,7 @@
 package br.com.uniamerica.transportadora.transportadoraapi.controller;
 
 import br.com.uniamerica.transportadora.transportadoraapi.entity.Despesa;
+import br.com.uniamerica.transportadora.transportadoraapi.repository.DespesaRepository;
 import br.com.uniamerica.transportadora.transportadoraapi.service.DespesaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -15,6 +16,9 @@ public class DespesaController {
 
     @Autowired
     private DespesaService despesaService;
+
+    @Autowired
+    private DespesaRepository despesaRepository;
 
     @PostMapping
     public ResponseEntity<?> cadastrar(
@@ -35,14 +39,14 @@ public class DespesaController {
         return ResponseEntity.ok().body(this.despesaService.listAll());
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/despesas/{id}")
     public ResponseEntity<Despesa> findById(
             @PathVariable("id") Long id
     ) {
         return ResponseEntity.ok().body(this.despesaService.findById(id));
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("/despesas/{id}")
     public ResponseEntity<?> atualizar(
             @PathVariable Long id,
             @RequestBody Despesa despesa
@@ -55,7 +59,7 @@ public class DespesaController {
         }
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/despesas/{id}")
     public ResponseEntity<?> deletar(
             @PathVariable Long id,
             @RequestBody Despesa despesa
@@ -66,6 +70,13 @@ public class DespesaController {
         } catch (RuntimeException e) {
             return ResponseEntity.badRequest().body(e.getMessage());
         }
+    }
+
+    @GetMapping("/despesas-aprovadas/{freteId}")
+    public ResponseEntity<?> findByFreteAndAprovadorIsNull(
+            @PathVariable("freteId") Long freteId
+    ) {
+        return ResponseEntity.ok().body(this.despesaRepository.findByFreteAndAprovadorIsNull(freteId));
     }
 
 }
