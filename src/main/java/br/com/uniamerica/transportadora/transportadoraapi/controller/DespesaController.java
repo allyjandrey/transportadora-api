@@ -52,7 +52,7 @@ public class DespesaController {
             @RequestBody Despesa despesa
     ) {
         try {
-            this.despesaService.update(id, despesa);
+            this.despesaService.atualizar(id, despesa);
             return ResponseEntity.ok().body("A despesa foi atualizada com sucesso");
         } catch (RuntimeException e) {
             return ResponseEntity.badRequest().body(e.getMessage());
@@ -65,7 +65,7 @@ public class DespesaController {
             @RequestBody Despesa despesa
     ) {
         try {
-            this.despesaService.delete(id, despesa);
+            this.despesaService.deletar(id, despesa);
             return ResponseEntity.ok().body("A despesa foi deletada com sucesso");
         } catch (RuntimeException e) {
             return ResponseEntity.badRequest().body(e.getMessage());

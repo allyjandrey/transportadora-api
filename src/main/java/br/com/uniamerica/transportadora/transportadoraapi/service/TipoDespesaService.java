@@ -28,7 +28,7 @@ public class TipoDespesaService {
     }
 
     @Transactional
-    public void update(Long id, TipoDespesa tipoDespesa) {
+    public void atualizar(Long id, TipoDespesa tipoDespesa) {
         if (id == tipoDespesa.getId()) {
             this.tipoDespesaRepository.save(tipoDespesa);
         } else {
@@ -37,7 +37,7 @@ public class TipoDespesaService {
     }
 
     @Transactional
-    public void delete(Long id, TipoDespesa tipoDespesa) {
+    public void deletar(Long id, TipoDespesa tipoDespesa) {
         if (id == tipoDespesa.getId()) {
             this.tipoDespesaRepository.delete(tipoDespesa);
         } else {

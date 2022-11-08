@@ -17,7 +17,6 @@ public interface HistoricoFreteRepository extends JpaRepository<HistoricoFrete, 
     public List<HistoricoFrete> findByAtivoTrue();
 
     @Query("from HistoricoFrete historicoFrete where.frete.id = :freteId")
-
     public List<HistoricoFrete> findByFrete(@Param("freteId") Long freteId);
 
     public List<HistoricoFrete> findByData(final LocalDate data);

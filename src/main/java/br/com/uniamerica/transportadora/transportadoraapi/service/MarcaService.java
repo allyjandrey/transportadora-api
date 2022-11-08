@@ -28,7 +28,7 @@ public class MarcaService {
     }
 
     @Transactional
-    public void update(Long id, Marca marca) {
+    public void atualizar(Long id, Marca marca) {
         if (id == marca.getId()) {
             this.marcaRepository.save(marca);
         } else {
@@ -37,7 +37,7 @@ public class MarcaService {
     }
 
     @Transactional
-    public void delete(Long id, Marca marca) {
+    public void deletar(Long id, Marca marca) {
         if (id == marca.getId()) {
             this.marcaRepository.delete(marca);
         } else {

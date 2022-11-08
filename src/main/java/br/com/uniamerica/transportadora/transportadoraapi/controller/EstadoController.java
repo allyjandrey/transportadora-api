@@ -48,7 +48,7 @@ public class EstadoController {
             @RequestBody Estado estado
     ) {
         try {
-            this.estadoService.update(id, estado);
+            this.estadoService.atualizar(id, estado);
             return ResponseEntity.ok().body("O estado  foi atualizado com sucesso");
         } catch (RuntimeException e) {
             return ResponseEntity.badRequest().body(e.getMessage());
@@ -61,7 +61,7 @@ public class EstadoController {
             @RequestBody Estado estado
     ) {
         try {
-            this.estadoService.delete(id, estado);
+            this.estadoService.deletar(id, estado);
             return ResponseEntity.ok().body("O estado foi deletado com sucesso");
         } catch (RuntimeException e) {
             return ResponseEntity.badRequest().body(e.getMessage());

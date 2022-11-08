@@ -48,7 +48,7 @@ public class MarcaController {
             @RequestBody Marca marca
     ) {
         try {
-            this.marcaService.update(id, marca);
+            this.marcaService.atualizar(id, marca);
             return ResponseEntity.ok().body("A marca foi atualizada com sucesso");
         } catch (RuntimeException e) {
             return ResponseEntity.badRequest().body(e.getMessage());
@@ -61,7 +61,7 @@ public class MarcaController {
             @RequestBody Marca marca
     ) {
         try {
-            this.marcaService.delete(id, marca);
+            this.marcaService.deletar(id, marca);
             return ResponseEntity.ok().body("A marca foi deletada com sucesso");
         } catch (RuntimeException e) {
             return ResponseEntity.badRequest().body(e.getMessage());

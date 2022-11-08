@@ -48,7 +48,7 @@ public class UsuarioController {
             @RequestBody Usuario usuario
     ) {
         try {
-            this.usuarioService.update(id, usuario);
+            this.usuarioService.atualizar(id, usuario);
             return ResponseEntity.ok().body("O usuário foi atualizado com sucesso");
         } catch (RuntimeException e) {
             return ResponseEntity.badRequest().body(e.getMessage());
@@ -61,7 +61,7 @@ public class UsuarioController {
             @RequestBody Usuario usuario
     ) {
         try {
-            this.usuarioService.delete(id, usuario);
+            this.usuarioService.deletar(id, usuario);
             return ResponseEntity.ok().body("O usuário foi deletado com sucesso");
         } catch (RuntimeException e) {
             return ResponseEntity.badRequest().body(e.getMessage());

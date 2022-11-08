@@ -4,9 +4,13 @@ import br.com.uniamerica.transportadora.transportadoraapi.repository.FreteReposi
 import br.com.uniamerica.transportadora.transportadoraapi.service.FreteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
+@Controller
+@RequestMapping("/api/fretes")
 public class FreteController {
 
     @Autowired

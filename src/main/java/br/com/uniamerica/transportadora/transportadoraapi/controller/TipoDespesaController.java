@@ -48,7 +48,7 @@ public class TipoDespesaController {
             @RequestBody TipoDespesa tipoDespesa
     ) {
         try {
-            this.tipoDespesaService.update(id, tipoDespesa);
+            this.tipoDespesaService.atualizar(id, tipoDespesa);
             return ResponseEntity.ok().body("O tipo da despesa foi atualizada com sucesso");
         } catch (RuntimeException e) {
             return ResponseEntity.badRequest().body(e.getMessage());
@@ -61,7 +61,7 @@ public class TipoDespesaController {
             @RequestBody TipoDespesa tipoDespesa
     ) {
         try {
-            this.tipoDespesaService.delete(id, tipoDespesa);
+            this.tipoDespesaService.deletar(id, tipoDespesa);
             return ResponseEntity.ok().body("O tipo da despesa foi deletada com sucesso");
         } catch (RuntimeException e) {
             return ResponseEntity.badRequest().body(e.getMessage());

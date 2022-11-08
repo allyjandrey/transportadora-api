@@ -28,7 +28,7 @@ public class ProdutoService {
     }
 
     @Transactional
-    public void update(Long id, Produto produto) {
+    public void atualizar(Long id, Produto produto) {
         if (id == produto.getId()) {
             this.produtoRepository.save(produto);
         } else {
@@ -37,7 +37,7 @@ public class ProdutoService {
     }
 
     @Transactional
-    public void delete(Long id, Produto produto) {
+    public void deletar(Long id, Produto produto) {
         if (id == produto.getId()) {
             this.produtoRepository.delete(produto);
         } else {

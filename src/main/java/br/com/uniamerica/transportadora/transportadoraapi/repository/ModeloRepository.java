@@ -13,7 +13,6 @@ import java.util.List;
 public interface ModeloRepository extends JpaRepository<Modelo, Long> {
 
     @Query("from Modelo modelo where.marca.id = :marcaId")
-
     public List<Modelo> findByMarca(@Param("marcaId") Long marcaId);
 
     public List<Modelo> findByAtivoTrue();

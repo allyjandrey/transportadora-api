@@ -28,7 +28,7 @@ public class DespesaService {
     }
 
     @Transactional
-    public void update(Long id, Despesa despesa) {
+    public void atualizar(Long id, Despesa despesa) {
         if (id == despesa.getId()) {
             this.despesaRepository.save(despesa);
         } else {
@@ -37,7 +37,7 @@ public class DespesaService {
     }
 
     @Transactional
-    public void delete(Long id, Despesa despesa) {
+    public void deletar(Long id, Despesa despesa) {
         if (id == despesa.getId()) {
             this.despesaRepository.delete(despesa);
         } else {

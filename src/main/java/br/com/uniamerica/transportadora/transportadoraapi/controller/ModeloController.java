@@ -59,7 +59,7 @@ public class ModeloController {
             @RequestBody Modelo modelo
     ) {
         try {
-            this.modeloService.update(id, modelo);
+            this.modeloService.atualizar(id, modelo);
             return ResponseEntity.ok().body("O modelo foi atualizado com sucesso");
         } catch (RuntimeException e) {
             return ResponseEntity.badRequest().body(e.getMessage());
@@ -72,7 +72,7 @@ public class ModeloController {
             @RequestBody Modelo modelo
     ) {
         try {
-            this.modeloService.delete(id, modelo);
+            this.modeloService.deletar(id, modelo);
             return ResponseEntity.ok().body("O modelo foi deletado com sucesso");
         } catch (RuntimeException e) {
             return ResponseEntity.badRequest().body(e.getMessage());

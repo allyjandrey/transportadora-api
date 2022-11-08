@@ -29,7 +29,7 @@ public class EstadoService {
     }
 
     @Transactional
-    public void update(Long id, Estado estado) {
+    public void atualizar(Long id, Estado estado) {
         if (id == estado.getId()) {
             this.estadoRepository.save(estado);
         } else {
@@ -38,7 +38,7 @@ public class EstadoService {
     }
 
     @Transactional
-    public void delete(Long id, Estado estado) {
+    public void deletar(Long id, Estado estado) {
         if (id == estado.getId()) {
             this.estadoRepository.delete(estado);
         } else {

@@ -29,7 +29,7 @@ public class ModeloService {
     }
 
     @Transactional
-    public void update(Long id, Modelo modelo) {
+    public void atualizar(Long id, Modelo modelo) {
         if (id == modelo.getId()) {
             this.modeloRepository.save(modelo);
         } else {
@@ -38,7 +38,7 @@ public class ModeloService {
     }
 
     @Transactional
-    public void delete(Long id, Modelo modelo) {
+    public void deletar(Long id, Modelo modelo) {
         if (id == modelo.getId()) {
             this.modeloRepository.delete(modelo);
         } else {

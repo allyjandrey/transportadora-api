@@ -48,7 +48,7 @@ public class CaminhaoController {
             @RequestBody Caminhao caminhao
     ) {
         try {
-            this.caminhaoService.update(id, caminhao);
+            this.caminhaoService.atualizar(id, caminhao);
             return ResponseEntity.ok().body("O caminhão foi atualizado com sucesso");
         } catch (RuntimeException e) {
             return ResponseEntity.badRequest().body(e.getMessage());
@@ -61,7 +61,7 @@ public class CaminhaoController {
             @RequestBody Caminhao caminhao
     ) {
         try {
-            this.caminhaoService.delete(id, caminhao);
+            this.caminhaoService.deletar(id, caminhao);
             return ResponseEntity.ok().body("O caminhão foi deletado com sucesso");
         } catch (RuntimeException e) {
             return ResponseEntity.badRequest().body(e.getMessage());

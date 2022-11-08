@@ -48,7 +48,7 @@ public class ProdutoController {
             @RequestBody Produto produto
     ) {
         try {
-            this.produtoService.update(id, produto);
+            this.produtoService.atualizar(id, produto);
             return ResponseEntity.ok().body("O produto foi atualizado com sucesso");
         } catch (RuntimeException e) {
             return ResponseEntity.badRequest().body(e.getMessage());
@@ -61,7 +61,7 @@ public class ProdutoController {
             @RequestBody Produto produto
     ) {
         try {
-            this.produtoService.delete(id, produto);
+            this.produtoService.deletar(id, produto);
             return ResponseEntity.ok().body("O produto foi deletado com sucesso");
         } catch (RuntimeException e) {
             return ResponseEntity.badRequest().body(e.getMessage());

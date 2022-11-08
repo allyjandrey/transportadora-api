@@ -28,7 +28,7 @@ public class UsuarioService {
     }
 
     @Transactional
-    public void update(Long id, Usuario usuario) {
+    public void atualizar(Long id, Usuario usuario) {
         if (id == usuario.getId()) {
             this.usuarioRepository.save(usuario);
         } else {
@@ -37,7 +37,7 @@ public class UsuarioService {
     }
 
     @Transactional
-    public void delete(Long id, Usuario usuario) {
+    public void deletar(Long id, Usuario usuario) {
         if (id == usuario.getId()) {
             this.usuarioRepository.delete(usuario);
         } else {

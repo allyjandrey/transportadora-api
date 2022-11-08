@@ -59,7 +59,7 @@ public class CidadeController {
             @RequestBody Cidade cidade
     ) {
         try {
-            this.cidadeService.update(id, cidade);
+            this.cidadeService.atualizar(id, cidade);
             return ResponseEntity.ok().body("A cidade foi atualizada com sucesso");
         } catch (RuntimeException e) {
             return ResponseEntity.badRequest().body(e.getMessage());
@@ -72,7 +72,7 @@ public class CidadeController {
             @RequestBody Cidade cidade
     ) {
         try {
-            this.cidadeService.delete(id, cidade);
+            this.cidadeService.deletar(id, cidade);
             return ResponseEntity.ok().body("A cidade foi deletada com sucesso");
         } catch (RuntimeException e) {
             return ResponseEntity.badRequest().body(e.getMessage());

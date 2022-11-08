@@ -28,7 +28,7 @@ public class CaminhaoService {
     }
 
     @Transactional
-    public void update(Long id, Caminhao caminhao) {
+    public void atualizar(Long id, Caminhao caminhao) {
         if (id == caminhao.getId()) {
             this.caminhaoRepository.save(caminhao);
         } else {
@@ -37,7 +37,7 @@ public class CaminhaoService {
     }
 
     @Transactional
-    public void delete(Long id, Caminhao caminhao) {
+    public void deletar(Long id, Caminhao caminhao) {
         if (id == caminhao.getId()) {
             this.caminhaoRepository.delete(caminhao);
         } else {

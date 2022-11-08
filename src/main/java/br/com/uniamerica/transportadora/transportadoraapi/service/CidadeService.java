@@ -28,7 +28,7 @@ public class CidadeService {
     }
 
     @Transactional
-    public void update(Long id, Cidade cidade) {
+    public void atualizar(Long id, Cidade cidade) {
         if (id == cidade.getId()) {
             this.cidadeRepository.save(cidade);
         } else {
@@ -37,7 +37,7 @@ public class CidadeService {
     }
 
     @Transactional
-    public void delete(Long id, Cidade cidade) {
+    public void deletar(Long id, Cidade cidade) {
         if (id == cidade.getId()) {
             this.cidadeRepository.delete(cidade);
         } else {
